@@ -1,6 +1,7 @@
 {
   "name": "sourceability/coding-standard",
   "type": "phpcodesniffer-standard",
+  "description": "Sourceability coding standards for reuse.",
   "autoload": {
     "psr-4": {
       "Sourceability\\CodingStandard\\": "src/"
