@@ -4,7 +4,7 @@ namespace Sourceability\CodingStandard;
 
 use PhpCsFixer\Config;
 
-class SourceabilityPhpCsFixerConfig extends Config
+class PhpCsFixerConfig extends Config
 {
     public static function create()
     {
