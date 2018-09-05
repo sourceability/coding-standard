@@ -43,6 +43,8 @@ class PhpCsFixerConfig extends Config
                 'phpdoc_order' => true,
                 'return_assignment' => true,
 
+                'native_function_invocation' => false,
+
                 'ordered_class_elements' => [
                     'use_trait',
                     'constant_public',
