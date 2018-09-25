@@ -14,6 +14,13 @@
         <exclude name="PSR2.Namespaces.NamespaceDeclaration.BlankLineAfter"/>
     </rule>
 
+    <!-- Ignore line length for comments -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="ignoreComments" type="boolean" value="true"/>
+        </properties>
+    </rule>
+
     <!-- Force array element indentation with 4 spaces -->
     <rule ref="Generic.Arrays.ArrayIndent"/>
     <!-- Forbid `array(...)` -->
