@@ -6,6 +6,8 @@
 >
     <description>The Sourceability coding standard.</description>
 
+    <rule ref="./src/PHPCS"/>
+
     <!-- Import PSR-2 coding standard (base) -->
     <rule ref="PSR2">
         <!-- checked by SlevomatCodingStandard.Namespaces.UseSpacing -->
