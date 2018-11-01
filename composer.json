@@ -7,16 +7,25 @@
       "Sourceability\\CodingStandard\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Sourceability\\CodingStandard\\Tests\\": "tests/"
+    }
+  },
   "require": {
     "php": "^7.1",
     "squizlabs/php_codesniffer": "^3.3.0",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.2",
     "slevomat/coding-standard": "^4.7.3",
-    "friendsofphp/php-cs-fixer": "^2.13"
+    "friendsofphp/php-cs-fixer": "^2.13",
+    "phpstan/phpstan-strict-rules": "^0.10.1",
+    "phpstan/phpstan": "^0.10.5"
   },
   "extra": {
     "branch-alias": {
       "dev-master": "1.0.x-dev"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.4"
   }
 }
