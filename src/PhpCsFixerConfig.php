@@ -65,6 +65,10 @@ class PhpCsFixerConfig extends Config
                     'method_protected',
                     'method_private',
                 ],
+                
+                'ordered_imports' => [
+                    'imports_order' => ['class', 'const', 'function'],
+                ],
             ])
         ;
     }
