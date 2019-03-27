@@ -44,6 +44,10 @@ class PhpCsFixerConfig extends Config
                 'return_assignment' => true,
 
                 'native_function_invocation' => false,
+                
+                'class_definition' => [
+                    'single_line' => false,
+                ],
 
                 'ordered_class_elements' => [
                     'use_trait',
