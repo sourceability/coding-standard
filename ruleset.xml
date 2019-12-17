@@ -2,7 +2,7 @@
 <ruleset
     name="Sourceability"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../vendor/squizlabs/php_codesniffer/phpcs.xsd"
+    xsi:noNamespaceSchemaLocation="../vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
     <description>The Sourceability coding standard.</description>
 
@@ -147,7 +147,7 @@
     <!-- Forbid assignments in conditions -->
     <rule ref="SlevomatCodingStandard.ControlStructures.AssignmentInCondition"/>
     <!-- Forbid weak comparisons -->
-    <rule ref="SlevomatCodingStandard.ControlStructures.DisallowEqualOperators"/>
+    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
     <!-- Require usage of early exit -->
     <rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit"/>
     <!-- Require language constructs without parentheses -->
@@ -160,8 +160,6 @@
     <rule ref="SlevomatCodingStandard.Exceptions.DeadCatch"/>
     <!-- Require using Throwable instead of Exception -->
     <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly"/>
-    <!-- Require use statements to be alphabetically sorted -->
-    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
     <!-- Forbid fancy group uses -->
     <rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse"/>
     <!-- Forbid multiple use statements on same line -->
@@ -230,7 +228,7 @@
     <!-- Require one space between typehint and variable, require no space between nullability sign and typehint -->
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
     <!-- Forbid empty lines around type declarations -->
-    <rule ref="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces">
+    <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
         <properties>
             <property name="linesCountAfterOpeningBrace" value="0"/>
             <property name="linesCountBeforeClosingBrace" value="0"/>
@@ -382,7 +380,36 @@
 
     <!-- Forbid useless @var for constants -->
     <rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint"/>
+    <!-- Forbid useless phpDocs for functions -->
+    <rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment">
+        <properties>
+            <property name="traversableTypeHints" type="array">
+                <element value="Traversable"/>
+                <element value="Iterator"/>
+                <element value="IteratorAggregate"/>
+                <element value="Doctrine\Common\Collections\Collection"/>
+            </property>
+        </properties>
+    </rule>
 
     <!-- Require the usage of assignment operators, eg `+=`, `.=` when possible -->
     <rule ref="SlevomatCodingStandard.Operators.RequireCombinedAssignmentOperator"/>
+
+    <!-- Require consistent spacing for block structures -->
+    <rule ref="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing">
+        <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure" />
+        <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeFirstControlStructure" />
+        <properties>
+            <property name="tokensToCheck" type="array">
+                <element value="T_IF" />
+                <element value="T_DO" />
+                <element value="T_WHILE" />
+                <element value="T_FOR" />
+                <element value="T_FOREACH" />
+                <element value="T_SWITCH" />
+                <element value="T_TRY" />
+                <element value="T_DEFAULT" />
+            </property>
+        </properties>
+    </rule>
 </ruleset>

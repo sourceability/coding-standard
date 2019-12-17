@@ -69,6 +69,9 @@ class PhpCsFixerConfig extends Config
                 'ordered_imports' => [
                     'imports_order' => ['class', 'const', 'function'],
                 ],
+
+                'single_line_throw' => false,
+                'phpdoc_trim_consecutive_blank_line_separation' => false,
             ])
         ;
     }
