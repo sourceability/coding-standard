@@ -14,6 +14,7 @@ class PhpCsFixerConfig extends Config
                 '@Symfony:risky' => true,
 
                 '@DoctrineAnnotation' => true,
+                'doctrine_annotation_array_assignment' => ['operator' => '='],
 
                 '@PHP71Migration' => true,
                 '@PHP71Migration:risky' => true,
