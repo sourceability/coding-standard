@@ -8,16 +8,23 @@ class PhpCsFixerConfig extends Config
 {
     public static function create()
     {
-        $config = new Config();
-        $config->setRules([
+        return parent::create()
+            ->setRules([
+                '@Symfony' => true,
+                '@Symfony:risky' => true,
+
+                '@DoctrineAnnotation' => true,
+
+                '@PHP71Migration' => true,
+                '@PHP71Migration:risky' => true,
+                'declare_strict_types' => false,
+
+                '@PHPUnit60Migration:risky' => true,
+
                 'array_indentation' => true,
                 'array_syntax' => ['syntax' => 'short'],
-                'class_definition' => [
-                    'single_line' => false,
-                ],
+
                 'compact_nullable_typehint' => true,
-                'declare_strict_types' => false,
-                '@DoctrineAnnotation' => true,
                 'explicit_indirect_variable' => true,
                 'explicit_string_variable' => true,
                 'fully_qualified_strict_types' => true,
@@ -25,14 +32,23 @@ class PhpCsFixerConfig extends Config
                 'logical_operators' => true,
                 'mb_str_functions' => true,
                 'method_chaining_indentation' => true,
-                'native_function_invocation' => false,
                 'no_alternative_syntax' => true,
                 'no_null_property_initialization' => true,
                 'no_superfluous_elseif' => true,
+                'no_useless_else' => true,
                 'no_superfluous_phpdoc_tags' => true,
                 'no_unset_on_property' => true,
-                'no_useless_else' => true,
                 'no_useless_return' => true,
+                'ordered_imports' => true,
+                'phpdoc_order' => true,
+                'return_assignment' => true,
+
+                'native_function_invocation' => false,
+                
+                'class_definition' => [
+                    'single_line' => false,
+                ],
+
                 'ordered_class_elements' => [
                     'use_trait',
                     'constant_public',
@@ -49,21 +65,14 @@ class PhpCsFixerConfig extends Config
                     'method_protected',
                     'method_private',
                 ],
+                
                 'ordered_imports' => [
                     'imports_order' => ['class', 'const', 'function'],
                 ],
-                '@PHP71Migration:risky' => true,
-                '@PHP71Migration' => true,
-                'phpdoc_order' => true,
-                'phpdoc_trim_consecutive_blank_line_separation' => false,
-                '@PHPUnit60Migration:risky' => true,
-                'return_assignment' => true,
+
                 'single_line_throw' => false,
-                '@Symfony:risky' => true,
-                '@Symfony' => true,
+                'phpdoc_trim_consecutive_blank_line_separation' => false,
             ])
         ;
-
-        return $config;
     }
 }
