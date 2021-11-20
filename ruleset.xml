@@ -106,8 +106,6 @@
             <property name="fixable" type="boolean" value="true"/>
         </properties>
     </rule>
-    <!-- Forbid dead code -->
-    <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements"/>
     <!-- Forbid useless annotations - Git and LICENCE file provide more accurate information -->
     <rule ref="SlevomatCodingStandard.Commenting.ForbiddenAnnotations">
         <properties>
