@@ -398,15 +398,15 @@
         <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure" />
         <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeFirstControlStructure" />
         <properties>
-            <property name="tokensToCheck" type="array">
-                <element value="T_IF" />
-                <element value="T_DO" />
-                <element value="T_WHILE" />
-                <element value="T_FOR" />
-                <element value="T_FOREACH" />
-                <element value="T_SWITCH" />
-                <element value="T_TRY" />
-                <element value="T_DEFAULT" />
+            <property name="controlStructures" type="array">
+                <element value="if" />
+                <element value="do" />
+                <element value="while" />
+                <element value="for" />
+                <element value="foreach" />
+                <element value="switch" />
+                <element value="try" />
+                <element value="default" />
             </property>
         </properties>
     </rule>
