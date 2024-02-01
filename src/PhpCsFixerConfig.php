@@ -3,13 +3,13 @@
 namespace Sourceability\CodingStandard;
 
 use PhpCsFixer\Config;
+use PhpCsFixer\ConfigInterface;
 
 class PhpCsFixerConfig extends Config
 {
-    public static function create()
+    public static function create(): ConfigInterface
     {
-        $config = new Config();
-        return $config->setRules([
+        return (new Config())->setRules([
             '@Symfony' => true,
             '@Symfony:risky' => true,
 
@@ -22,7 +22,9 @@ class PhpCsFixerConfig extends Config
             '@PHPUnit60Migration:risky' => true,
 
             'array_indentation' => true,
-            'array_syntax' => ['syntax' => 'short'],
+            'array_syntax' => [
+                'syntax' => 'short'
+            ],
 
             'compact_nullable_typehint' => true,
             'explicit_indirect_variable' => true,

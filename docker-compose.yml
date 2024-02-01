@@ -2,6 +2,7 @@ version: "3.2"
 
 services:
   php:
+    container_name: php
     build: .
     volumes:
       - .:/app

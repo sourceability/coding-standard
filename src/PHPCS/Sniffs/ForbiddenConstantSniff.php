@@ -4,6 +4,7 @@ namespace Sourceability\CodingStandard\PHPCS\Sniffs;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+
 use const T_CLASS_C;
 use const T_FUNC_C;
 use const T_LINE;

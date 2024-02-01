@@ -4,10 +4,9 @@ namespace Sourceability\CodingStandard\PHPCS\Sniffs;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
-use PhpCsFixer\Fixer\FixerInterface;
-use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
-use PhpCsFixer\Tokenizer\Tokens;
+
 use function sprintf;
+
 use const T_OBJECT_OPERATOR;
 use const T_STRING;
 

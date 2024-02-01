@@ -1,0 +1,74 @@
+#
+# Tip: use \PHPStan\dumpType($a); to debug types
+#
+parameters:
+    level: 8
+    paths:
+        - '%currentWorkingDirectory%/src'
+    parallel:
+        processTimeout: 1000.0 # If this is not enough, allocate more cores to docker
+
+    compact:
+        format: "src/{path}:{line} {error}"
+
+    strictRules:
+        disallowedLooseComparison: false
+        booleansInConditions: false
+        uselessCast: false
+        requireParentConstructorCall: true
+        disallowedConstructs: true
+        overwriteVariablesWithLoop: true
+        closureUsesThis: true
+        matchingInheritedMethodNames: true
+        numericOperandsInArithmeticOperators: false
+        strictCalls: true
+        switchConditionsMatchingType: true
+        noVariableVariables: false
+
+    # See https://github.com/phpstan/phpstan-src/blob/0.12.56/conf/config.neon#L21-L44
+    checkUninitializedProperties: true
+    checkMissingIterableValueType: false
+
+    # https://github.com/phpstan/phpstan-strict-rules/blob/0.12.2/rules.neon
+    checkAlwaysTrueCheckTypeFunctionCall: true
+    checkAlwaysTrueInstanceof: true
+    checkExplicitMixedMissingReturn: false
+    checkFunctionNameCase: true
+    reportMaybesInMethodSignatures: false
+    reportStaticMethodSignatures: true
+    checkGenericClassInNonGenericObjectType: false
+    reportWrongPhpDocTypeInVarTag: false
+
+    banned_code:
+        # enable detection of `use Tests\Foo\Bar` in a non-test file
+        use_from_tests: true
+
+        nodes:
+            -
+                type: Expr_FuncCall
+                functions:
+                    - Functional\filter # Please use F\select instead
+                    - Functional\each # Please use the native foreach
+                    - Functional\partition # Please use foreach instead
+
+conditionalTags:
+    PHPStan\Rules\DisallowedConstructs\DisallowedShortTernaryRule:
+        phpstan.rules.rule: false
+
+includes:
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/grifart/phpstan-oneline/config.neon
+    - vendor/ekino/phpstan-banned-code/extension.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+
+services:
+    - class: PHPStan\Rules\Cast\UselessCastRule
+      arguments:
+          treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+      tags:
+          - phpstan.rules.rule
+
+    errorFormatter.table:
+        arguments:
+            relativePathHelper: @simpleRelativePathHelper
