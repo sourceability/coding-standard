@@ -41,7 +41,6 @@ class PhpCsFixerConfig extends Config
             'no_superfluous_phpdoc_tags' => true,
             'no_unset_on_property' => true,
             'no_useless_return' => true,
-            'ordered_imports' => true,
             'phpdoc_order' => true,
             'return_assignment' => true,
 
@@ -49,23 +48,6 @@ class PhpCsFixerConfig extends Config
 
             'class_definition' => [
                 'single_line' => false,
-            ],
-
-            'ordered_class_elements' => [
-                'use_trait',
-                'constant_public',
-                'constant_protected',
-                'constant_private',
-                'property_public',
-                'property_protected',
-                'property_private',
-                'construct',
-                'destruct',
-                'magic',
-                'phpunit',
-                'method_public',
-                'method_protected',
-                'method_private',
             ],
 
             'ordered_imports' => [
